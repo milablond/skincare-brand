@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nude Skincare - Skincare Naturel</title>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo" onclick="showPage('home')">Nude Skincare</a>
+            <ul class="nav-menu">
+                <li><a href="#" onclick="showPage('home')">Accueil</a></li>
+                <li><a href="#" onclick="showPage('shop')">Boutique</a></li>
+                <li><a href="#" onclick="showPage('quiz')">Test de Peau</a></li>
+                <li><a href="#" onclick="showPage('about')">À Propos</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="cart-icon" onclick="toggleCart()">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m2.6 8L6 3H3m4 10v6a2 2 0 002 2h8a2 2 0 002-2v-6m-10 6h10"/>
+                    </svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="home" class="page active">
+            <section class="vitrine">
+                <div class="vitrine-content">
+                    <h1>Révélez votre peau naturelle</h1>
+                    <p>Découvrez des soins sensoriels et naturels qui entretiennent votre beauté authentique</p>
+                    <a href="#" class="cta-button" onclick="showPage('shop')">Découvrir nos soins</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <div id="cartPanel" class="cart-panel">
+        <div class="cart-header">
+            <h3>Mon Panier</h3>
+            <button class="modal-close" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: var(--text-light); padding: 2rem;">Votre panier est vide</p>
+        </div>
+        <div class="cart-total" id="cartTotal" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <span style="font-weight: 600;">Total:</span>
+                <span id="totalAmount" style="font-weight: 600; color: var(--accent);">0€</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Finaliser l'achat</button>
+        </div>
+    </div>
+
+            <section class="values">
+                <div class="container">
+                    <h2 class="section-title fade-in">Nos Engagements</h2>
+                    <div class="values-grid">
+                        <div class="value-card fade-in">
+                            <div class="value-icon">🌱</div>
+                            <h3>Ingrédients Bruts</h3>
+                            <p>Sélectionnés avec soin, nos actifs naturels respectent l'équilibre de votre peau</p>
+                        </div>
+                        <div class="value-card fade-in">
+                            <div class="value-icon">✨</div>
+                            <h3>Formules Douces</h3>
+                            <p>Nos textures sensorielles offrent une expérience de soin unique et apaisante</p>
+                        </div>
+                        <div class="value-card fade-in">
+                            <div class="value-icon">♻️</div>
+                            <h3>Emballages Recyclables</h3>
+                            <p>Nous nous engageons pour une beauté respectueuse de l'environnement</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="shop" class="page">
+            <section class="products">
+                <div class="container">
+                    <h2 class="section-title">Notre Collection</h2>
+                    <div class="products-grid" id="productsGrid">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="quiz" class="page">
+            <section class="quiz">
+                <div class="container">
+                    <h2 class="section-title">Test de Peau Personnalisé</h2>
+                    <div class="quiz-container">
+                        <div id="quizStart" class="quiz-question active">
+                            <h3>Découvrez votre type de peau</h3>
+                            <p>Répondez à quelques questions pour recevoir des recommandations personnalisées</p>
+                            <button class="cta-button" onclick="startQuiz()">Commencer le test</button>
+                        </div>
+                        <div id="quizResult" class="quiz-result">
+                            <h3>Votre résultat</h3>
+                            <div id="resultContent"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="about" class="page">
+            <section class="about">
+                <div class="container">
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h2 class="section-title">Notre Histoire</h2>
+                            <p>Nude Skincare est une marque pour la beauté naturelle et authentique. Après des années de recherche dans les laboratoires cosmétiques, la marque est disponible pour offrir une gamme de soins respectueux de la peau et de l'environnement.</p>
+                            <p>Chaque formule est pensée pour révéler la beauté naturelle de votre peau, avec des ingrédients soigneusement sélectionnés pour leur efficacité et leur douceur.</p>
+                            <p>Notre mission : vous accompagner dans une routine de beauté qui vous ressemble, avec des produits qui prennent soin de vous et de la planète.</p>
+                        </div>
+                        <div class="about-image"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="contact" class="page">
+            <section class="contact">
+                <div class="container">
+                    <h2 class="section-title">Contactez-nous</h2>
+                    <div class="contact-content">
+                        <div class="contact-form">
+                            <h3>Envoyez-nous un message</h3>
+                            <form onsubmit="handleSubmit(event)">
+                                <div class="form-group">
+                                    <label for="name">Prénom</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="submit-btn">Envoyer</button>
+                            </form>
+                        </div>
+                        <div class="faq">
+                            <h3>Questions Fréquentes</h3>
+                            <div class="faq-item">
+                                <button class="faq-question" onclick="toggleFAQ(this)">
+                                    Quels types de peau conviennent à vos produits ?
+                                    <span>+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>Nos produits sont formulés pour convenir à tous les types de peau, des plus sensibles aux plus résistantes. Chaque formule est testée dermatologiquement.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-question" onclick="toggleFAQ(this)">
+                                    Vos produits sont-ils vraiment naturels ?
+                                    <span>+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>Oui, nous privilégions les ingrédients d'origine naturelle. Nos formules contiennent au minimum 95% d'ingrédients naturels.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-question" onclick="toggleFAQ(this)">
+                                    Comment choisir les bons produits pour ma peau ?
+                                    <span>+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>Nous recommandons de faire Notre test de peau personnalisé pour recevoir des recommandations adaptées à vos besoins spécifiques.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </body>
+            </html>
