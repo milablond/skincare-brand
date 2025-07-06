@@ -141,7 +141,6 @@ nav {
   transition: 0.3s;
 }
 
-/* Ajoutez après les styles existants du mobile-menu */
 .nav-menu.mobile-open {
   display: flex;
   flex-direction: column;
