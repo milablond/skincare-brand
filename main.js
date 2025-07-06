@@ -57,8 +57,7 @@ const products = [
     id: 6,
     name: 'Contour des Yeux',
     price: 45,
-    description:
-      'Un soin ciblé qui atténue les cernes et ridules.',
+    description: 'Un soin ciblé qui atténue les cernes et ridules.',
     ingredients: 'Peptides, Caféine, Acide hyaluronique, Extrait de concombre',
     category: 'contour',
   },
